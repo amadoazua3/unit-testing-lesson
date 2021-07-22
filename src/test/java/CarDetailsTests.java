@@ -98,6 +98,52 @@ public class CarDetailsTests {
 
     }
 
+    // TODO Then, write a test following Arrange/Act/Assert which tests convertToElectric on whether the car's isElectric field was set when 'electric' is present in the engineType string.
 
+    // TODO Then, write a test to make sure that convertToElectric will set the car's isElectric field regardless of how the string with 'electric' is capitalized.
+
+    // TODO For BOTH of these tests, you will use assertTrue or assertFalse to see if car.isElectric is true or false. Be sure to look at the curriculum on how to use those methods!
+
+    @Test
+    public void convertToElectric_ReturnsTrue(){
+
+        //Arrange
+        Car car = new Car();
+
+        //Act
+        CarUtils.convertToElectric(car, "electric");
+
+        //Assert
+        Assert.assertTrue(car.isElectric());
+
+    }
+
+    @Test
+    public void convertToElectric_ReturnsFalse(){
+
+        //Arrange
+        Car car = new Car();
+
+        //Act
+        CarUtils.convertToElectric(car, "V-8 Turbo Diesel");
+
+        //Assert
+        Assert.assertFalse(car.isElectric());
+
+    }
+
+    @Test
+    public void convertToElectric_GivenUpperCase_ReturnsTrue(){
+
+        //Arrange
+        Car car = new Car();
+
+        //Act
+        CarUtils.convertToElectric(car, "Electric");
+
+        //Assert
+        Assert.assertTrue(car.isElectric());
+
+    }
 
 }
